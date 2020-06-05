@@ -8,6 +8,8 @@ In this project, we are using Smart Document Understanding So if the customer ha
 In Watson Discovery I have added ecobee3_userguide.
 
 Node-Red Dashboard link after deploying : https://node-red-jejeg.eu-gb.mybluemix.net/ui/
+
+
 Youtube video link is : https://www.youtube.com/watch?v=8ZW61C1LHd8&feature=youtu.be
 
 You can find the discovery manual, cloud function code, node-red flow and assistant skill file above.
