@@ -1,0 +1,156 @@
+[
+    {
+        "id": "3df08dcc.a84692",
+        "type": "ui_form",
+        "z": "78d72571.9a086c",
+        "name": "",
+        "label": "",
+        "group": "10f5ddcb.0c6562",
+        "order": 1,
+        "width": 17,
+        "height": 2,
+        "options": [
+            {
+                "label": "Ask your question",
+                "value": "text",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "text": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "",
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "d60db39c.76eb4"
+            ]
+        ]
+    },
+    {
+        "id": "d60db39c.76eb4",
+        "type": "function",
+        "z": "78d72571.9a086c",
+        "name": "",
+        "func": "msg.payload=msg.payload.text;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 160,
+        "wires": [
+            [
+                "601b8671.62ba58",
+                "4270ee36.7687c"
+            ]
+        ]
+    },
+    {
+        "id": "6730252a.66128c",
+        "type": "function",
+        "z": "78d72571.9a086c",
+        "name": "",
+        "func": "msg.payload=msg.payload.output.text[0];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 280,
+        "wires": [
+            [
+                "a5f4cf0.5baef3"
+            ]
+        ]
+    },
+    {
+        "id": "4270ee36.7687c",
+        "type": "ui_text",
+        "z": "78d72571.9a086c",
+        "group": "10f5ddcb.0c6562",
+        "order": 2,
+        "width": 17,
+        "height": 1,
+        "name": "",
+        "label": "User",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 670,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a5f4cf0.5baef3",
+        "type": "ui_text",
+        "z": "78d72571.9a086c",
+        "group": "10f5ddcb.0c6562",
+        "order": 3,
+        "width": 17,
+        "height": 4,
+        "name": "",
+        "label": "Bot",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1150,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "4021b46.abc424c",
+        "type": "debug",
+        "z": "78d72571.9a086c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 910,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "601b8671.62ba58",
+        "type": "watson-conversation-v1",
+        "z": "78d72571.9a086c",
+        "name": "Customer HelpDesk",
+        "workspaceid": "7fb73f8a-96b4-4e3b-b54d-2625f91c9a5a",
+        "multiuser": false,
+        "context": true,
+        "empty-payload": false,
+        "service-endpoint": "https://api.eu-gb.assistant.watson.cloud.ibm.com/instances/822a9122-9b32-415d-93a0-00585f2d562a",
+        "timeout": "",
+        "optout-learning": false,
+        "x": 720,
+        "y": 100,
+        "wires": [
+            [
+                "4021b46.abc424c",
+                "6730252a.66128c"
+            ]
+        ]
+    },
+    {
+        "id": "10f5ddcb.0c6562",
+        "type": "ui_group",
+        "z": "",
+        "name": "Chatbot",
+        "tab": "d7237371.6a30b",
+        "order": 1,
+        "disp": true,
+        "width": 17,
+        "collapse": false
+    },
+    {
+        "id": "d7237371.6a30b",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Customer Helpdesk",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
